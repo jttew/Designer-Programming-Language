@@ -1,0 +1,9 @@
+def a(f)[
+	make s = (7 * (5 / (4 + 5)));
+	make r = s * f;
+	return(r);
+	]
+
+def main()[
+	return(a(5));
+	]

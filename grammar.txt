@@ -1,0 +1,67 @@
+//AUTHOR jttew
+
+program : optFuncDefClassList
+
+optFuncDefClassList : funcDef optFuncDefClassList
+	            | class optFuncDefClassList 
+	            | funcDef
+	            | class
+	            | None
+
+class : CLASS OPAREN optPeramList CPAREN block
+
+funcDef : FUNCTION_ID OPAREN optPeramList CPAREN block
+
+optPeramList : ID
+	     | ID COMMA optPeramList
+	     | None
+
+block : OBRACE optDeclList CBRACE
+
+optDeclList : declList
+	    | None
+
+declList : decl declList
+	 | decl
+
+decl : funcDef
+     | conditional
+     | varDecl
+
+varDecl : ID ASSIGN expr
+
+expr : primary
+     | primary op expr
+
+primary : STRING
+        | INT
+        | COMPLEX
+        | REAL
+        | VECTOR
+        | BOOL
+        | NULL
+        | funcCall
+        | id expr
+        | OPAREN expr CPAREN
+
+op : PLUS 
+   | MINUS 
+   | DEVIDE 
+   | MULTIPLY
+
+logic : LESSTHAN
+      | GREATERTHAN
+      | EQUALTO
+      | GTOREQUAL
+      | LTOREQUAL
+
+conditional : while 
+	    | if
+
+while : WHILE OPAREN expr CPAREN block
+
+if : IF OPAREN expr CPAREN block optElse
+
+optElse : ELSE block
+        | None
+

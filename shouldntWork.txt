@@ -1,0 +1,10 @@
+def a()[
+	make b = 3
+	print(7)
+
+def b()[
+	a()
+	print((5 + 4) / 3)
+	]
+	
+		
