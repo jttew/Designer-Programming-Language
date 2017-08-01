@@ -1,0 +1,3 @@
++Run --> recognizer --> lexical analyzer
+ + |
+ + -----> environment (output)
